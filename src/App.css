@@ -1,0 +1,19 @@
+body{
+    background-color: #1f1e1e;
+    color: white;
+    overflow: hidden;
+}
+.hero{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.app{
+    display: inline;
+    justify-content: center;
+    align-items: center;
+}
+
+.todo-input-item{
+    display: inline;
+}
