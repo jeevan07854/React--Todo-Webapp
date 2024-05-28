@@ -3,17 +3,71 @@ body{
     color: white;
     overflow: hidden;
 }
+h1{
+    text-align: center;
+}
 .hero{
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.app{
-    display: inline;
-    justify-content: center;
-    align-items: center;
+.todo-wrapper{
+    background-color: #1a1212;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 50px 150px;
+    box-shadow: 0px 2px 2px 0px rgb(10, 0, 0);
 }
 
-.todo-input-item{
-    display: inline;
+.todo-input{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 0.5px solid black;
+    padding: 8px 8px;
+    gap: 9px;
+}
+
+
+.todo-input-items{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-right: 25px;
+}
+input{
+    /* border: 2px rgb(214, 10, 10); */
+    padding: 9px 40px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    margin: 2px;  
+    
+      
+}
+.todo-input-items label{
+    font-weight: bold;
+    padding-bottom: 5px;
+}
+
+.primarybtn{
+    color: #1f1e1e;
+    cursor: pointer;
+    background-color: rgb(9, 240, 201);
+}
+.primarybtn:hover{
+    background-color: aqua;
+    color: #1f1e1e;
+    cursor: pointer;
+}
+.secondarybtn{
+    margin-top: 50px;
+    padding: 8px 13px;
+    color: #09f1bf;
+    cursor: pointer;
+    border: none;
+    background-color:#030303;
+}
+.active{
+    background-color: #fff;
 }
