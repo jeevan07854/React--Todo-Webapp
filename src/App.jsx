@@ -1,12 +1,20 @@
 import React, { useState } from 'react'
 // import Hero from './component/Hero'
 import './App.css'
-const[iscompletestate,useiscompletestate]=useState(false);
+import { RiDeleteBinLine } from "react-icons/ri";
+import { IoCheckmarkDoneOutline } from "react-icons/io5";
+
+
+
+// setactive(!true);
 const App = () => {
+  const [active,setactive]=useState(false);
+  
   return (
     
     <>
     <div className="hero">
+      
 
    <div className="app">
     <h1>My Todo</h1>
@@ -30,16 +38,32 @@ const App = () => {
       </div>
 
     <div className="btn-area">
-      <button  className={`iscompletestate ${iscompletestate === false && `active`}`} onClick={()=>{setiscompletestate(false)}}>Todo</button>
-      <button className={`iscompletestate ${iscompletestate === true && `active`}`} onClick={()=>{setiscompletestate(true)}}>Completed</button>
+    <button className={`secondarybtn ${ active===false && 'active'}`} onClick={()=>{
+      setactive(false)
+    }}>Todo</button>
+    <button className={`secondarybtn ${ active===true && 'active'}`} onClick={()=>{
+      setactive(true)
+    }}>Completed</button>
     </div>
 
     <div className="todo-list">
+      <div className="todo-list-item">
+        <div className='list'>
       <h3>Todo 1</h3>
       <p>Discription</p>
-    </div>
 
+        </div>
+        <div className='icon'>
+
+        <RiDeleteBinLine className='del-icon' />
+        <IoCheckmarkDoneOutline className='ok-icon' />
+
+
+        </div>
+      </div>
     </div>
+</div>
+
    </div>
     </div>
     </>

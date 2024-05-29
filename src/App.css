@@ -63,11 +63,57 @@ input{
 .secondarybtn{
     margin-top: 50px;
     padding: 8px 13px;
-    color: #09f1bf;
+    color: #dee2e1;
     cursor: pointer;
     border: none;
+    outline: none;
     background-color:#030303;
 }
 .active{
-    background-color: #fff;
+    background-color: #d61919;
+    color: antiquewhite;
+}
+
+.todo-list{
+    display: flex;
+    /* justify-content: center; */
+    /* align-items: center; */
+    flex-direction: column;
+    background-color: #1f1e1e;
+    margin: 9px;
+    padding: 9px;
+    font-size: 18px;
+    box-shadow: 0.2px 1px 2px 1px rgb(13, 13, 13);
+}
+
+.todo-list-item{
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: center;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 8px;
+    margin-left: 10px;
+    
+}
+
+.todo-list-item .icon{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.todo-list-item h3{
+    margin: 0%;
+    color: aquamarine;
+}
+
+.icon .del-icon:hover{
+  color: #d61919;
+}
+
+.icon .ok-icon:hover{
+   color: aquamarine;
 }
