@@ -9,7 +9,23 @@ import { IoCheckmarkDoneOutline } from "react-icons/io5";
 // setactive(!true);
 const App = () => {
   const [active,setactive]=useState(false);
-  
+  const [todos,settodos]=useState([]);
+  const [title,settitle]=useState("");
+  const [discription,setdiscription]=useState("");
+
+
+
+  const handleadd=()=>{
+     const newtodoitem ={
+      title:title,
+      discription:discription 
+     }
+     const updatetodoarr =[...todos];
+    updatetodoarr.push(newtodoitem);
+    settodos(updatetodoarr);
+  }
+
+
   return (
     
     <>
@@ -23,16 +39,16 @@ const App = () => {
       <div className="todo-input">
         <div className="todo-input-items">
           <label htmlFor="">Title : </label>
-          <input type="text" name="Todays Todo" placeholder="Today's task Todo" />
+          <input type="text" value={title} onChange={(e)=>{settitle(e.target.value)}} name="Todays Todo" placeholder="Today's task Todo" />
         </div>
 
         <div className="todo-input-items">
           <label htmlFor="">Discription : </label>
-          <input type="text" name="Todays Todo disc" placeholder="Today's task Todo Discription" />
+          <input type="text" name="Todays Todo disc" value={discription} onChange={(e)=>{setdiscription(e.target.value)}} placeholder="Today's task Todo Discription" />
         </div>
 
         <div className="todo-input-items">
-<input type="button" className="primarybtn" value="Add" placeholder='Add' />
+<input type="button" className="primarybtn" onClick={handleadd()} value="Add" placeholder='Add' />
 
         </div>
       </div>
@@ -45,23 +61,37 @@ const App = () => {
       setactive(true)
     }}>Completed</button>
     </div>
-
-    <div className="todo-list">
-      <div className="todo-list-item">
-        <div className='list'>
-      <h3>Todo 1</h3>
-      <p>Discription</p>
-
-        </div>
-        <div className='icon'>
-
-        <RiDeleteBinLine className='del-icon' />
-        <IoCheckmarkDoneOutline className='ok-icon' />
+ 
 
 
-        </div>
-      </div>
-    </div>
+      {
+        todos.map((value,index)=>{
+          return(
+            <div className="todo-list" key={index}>
+            <div className="todo-list-item">
+              <div className='list'>
+            <h3>{value/title}</h3>
+            <p>{value.discription}</p>
+      
+              </div>
+              <div className='icon'>
+      
+              <RiDeleteBinLine className='del-icon' />
+              <IoCheckmarkDoneOutline className='ok-icon' />
+      
+      
+              </div>
+            </div>
+          </div>
+
+            
+          )
+        })
+      }
+
+  
+
+
 </div>
 
    </div>
