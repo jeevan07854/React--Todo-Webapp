@@ -15,7 +15,7 @@ const App = () => {
 
     
 
-  const handleadd=()=>{
+  const handleAdd=()=>{
      const newtodoitem ={
 
       title:title,
@@ -41,7 +41,7 @@ const App = () => {
 
      };
        
-
+ 
 
 
 useEffect(()=>{
@@ -73,7 +73,7 @@ useEffect(()=>{
         </div>
 
         <div className="todo-input-items">
-<input type="button" className="primarybtn" onClick={handleadd} value="Add" placeholder='Add' />
+<input type="button" className="primarybtn" onClick={handleAdd} value="Add" placeholder='Add' />
 
         </div>
       </div>
