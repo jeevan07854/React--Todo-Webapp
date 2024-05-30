@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 // import Hero from './component/Hero'
 import './App.css'
 import { RiDeleteBinLine } from "react-icons/ri";
 import { IoCheckmarkDoneOutline } from "react-icons/io5";
-
+import { uniqueId } from 'lodash';
 
 
 // setactive(!true);
@@ -13,19 +13,44 @@ const App = () => {
   const [title,settitle]=useState("");
   const [discription,setdiscription]=useState("");
 
-
+    
 
   const handleadd=()=>{
      const newtodoitem ={
+
       title:title,
-      discription:discription 
+      discription:discription ,
+      id:uniqueId(),
+      
      }
      const updatetodoarr =[...todos];
     updatetodoarr.push(newtodoitem);
     settodos(updatetodoarr);
+    // console.log(newtodoitem)
+    localStorage.setItem('todolist',JSON.stringify(updatetodoarr));
   }
+    
+     const handledeletetodo =(id)=>{
+     const reducedtodo =todos.filter((item)=>item.id !== id);
+   console.log(id,reducedtodo)
+    //  reducedtodo.splice(index);
+    //   console.log(reducedtodo);
+     localStorage.setItem('todolist',JSON.stringify(reducedtodo))
+     settodos(reducedtodo);
 
 
+     };
+       
+
+
+
+useEffect(()=>{
+  let savedtodo = JSON.parse(localStorage.getItem('todolist'));
+  // console.log(savedtodo)
+  if(savedtodo){
+ settodos(savedtodo);
+  }
+},[])
   return (
     
     <>
@@ -48,7 +73,7 @@ const App = () => {
         </div>
 
         <div className="todo-input-items">
-<input type="button" className="primarybtn" onClick={handleadd()} value="Add" placeholder='Add' />
+<input type="button" className="primarybtn" onClick={handleadd} value="Add" placeholder='Add' />
 
         </div>
       </div>
@@ -67,16 +92,18 @@ const App = () => {
       {
         todos.map((value,index)=>{
           return(
-            <div className="todo-list" key={index}>
+            <div className="todo-list" key={value.id}>
             <div className="todo-list-item">
               <div className='list'>
-            <h3>{value/title}</h3>
+            <h3>{value.title}</h3>
             <p>{value.discription}</p>
       
               </div>
               <div className='icon'>
       
-              <RiDeleteBinLine className='del-icon' />
+              <RiDeleteBinLine className='del-icon' onClick={()=>[
+                handledeletetodo(value.id)
+              ]} />
               <IoCheckmarkDoneOutline className='ok-icon' />
       
       
