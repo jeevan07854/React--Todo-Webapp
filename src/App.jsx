@@ -12,7 +12,7 @@ const App = () => {
   const [todos,settodos]=useState([]);
   const [title,settitle]=useState("");
   const [discription,setdiscription]=useState("");
-
+const [completedTodo,setCompletedTodo]=useState("");
     
 
   const handleAdd=()=>{
@@ -41,6 +41,21 @@ const App = () => {
 
      };
        
+     const completeTodoHandler=(index)=>{
+      const now =new Date();
+      const dd =now.getDate();
+      const mm =now.getMonth();
+      const yyyy =now.getFullYear();
+      const h =now.getHours();
+      const m =now.getMonth()
+      const s =now.getSeconds()
+      const completedOn = dd + '-' +mm +'-'+yyyy+ ' at ' +h+':'+m+':'+s;
+
+      const filterItem ={
+        ...allTodos[index],
+        completedOn : completedOn,
+      }
+     }
  
 
 
@@ -104,7 +119,9 @@ useEffect(()=>{
               <RiDeleteBinLine className='del-icon' onClick={()=>[
                 handledeletetodo(value.id)
               ]} />
-              <IoCheckmarkDoneOutline className='ok-icon' />
+              <IoCheckmarkDoneOutline className='ok-icon' onClick={()=>{
+                completeTodoHandler()
+              }}/>
       
       
               </div>
