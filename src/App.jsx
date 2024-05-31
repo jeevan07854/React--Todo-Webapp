@@ -55,6 +55,9 @@ const [completedTodo,setCompletedTodo]=useState("");
         ...allTodos[index],
         completedOn : completedOn,
       }
+      const updateCompletionArr=[...completedTodo]
+      updateCompletionArr.push(filterItem);
+      setCompletedTodo(updateCompletionArr);
      }
  
 
@@ -101,11 +104,8 @@ useEffect(()=>{
       setactive(true)
     }}>Completed</button>
     </div>
- 
-
-
-      {
-        todos.map((value,index)=>{
+    {
+        completedTodo===true && completedTodo.map((value,index)=>{
           return(
             <div className="todo-list" key={value.id}>
             <div className="todo-list-item">
@@ -120,7 +120,7 @@ useEffect(()=>{
                 handledeletetodo(value.id)
               ]} />
               <IoCheckmarkDoneOutline className='ok-icon' onClick={()=>{
-                completeTodoHandler()
+                completeTodoHandler(value.id)
               }}/>
       
       
@@ -133,7 +133,38 @@ useEffect(()=>{
         })
       }
 
-  
+
+      {
+        completedTodo===false && todos.map((value,index)=>{
+          return(
+            <div className="todo-list" key={value.id}>
+            <div className="todo-list-item">
+              <div className='list'>
+            <h3>{value.title}</h3>
+            <p>{value.discription}</p>
+      
+              </div>
+              <div className='icon'>
+      
+              <RiDeleteBinLine className='del-icon' onClick={()=>[
+                handledeletetodo(value.id)
+              ]} />
+              <IoCheckmarkDoneOutline className='ok-icon' onClick={()=>{
+                completeTodoHandler(value.id)
+              }}/>
+      
+      
+              </div>
+            </div>
+          </div>
+
+            
+          )
+        })
+      }
+
+
+
 
 
 </div>
