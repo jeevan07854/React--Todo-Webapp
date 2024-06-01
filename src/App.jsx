@@ -102,14 +102,16 @@ useEffect(()=>{
     }}>Todo</button>
     <button className={`secondarybtn ${ active===true && 'active'}`} onClick={()=>{
       setactive(true)
-    }}>Completed               </button>
+    }}>Completed</button>
     </div>
 
 
     
 
     {
-        active===true && completedTodo.map((value,index)=>{
+        // active===true && 
+        
+        todos.map((value,index)=>{
           return(
             <div className="todo-list" key={value.id}>
             <div className="todo-list-item">
