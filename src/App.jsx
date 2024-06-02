@@ -108,13 +108,15 @@ useEffect(()=>{
 
     
 
+            <div className="todo-list" key={value.id}>
     {
-        // active===true && 
+      // active===true && 
         
         todos.map((value,index)=>{
           return(
-            <div className="todo-list" key={value.id}>
-            <div className="todo-list-item">
+            <div> 
+              <div className="todo-list-item" key={value.id}>
+
               <div className='list'>
             <h3>{value.title}</h3>
             <p>{value.discription}</p>
@@ -128,16 +130,17 @@ useEffect(()=>{
               <IoCheckmarkDoneOutline className='ok-icon' onClick={()=>{
                 completeTodoHandler(value.id)
               }}/>
+              </div>
       
       
               </div>
-            </div>
-          </div>
 
-            
-          )
-        })
-      }
+
+</div>
+)
+})
+}
+</div>
 
 
       {/* {
