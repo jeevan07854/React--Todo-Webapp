@@ -108,16 +108,16 @@ useEffect(()=>{
 
     
 
-            <div className="todo-list" key={value.id}>
     {
-      // active===true && 
+      active===false && 
         
         todos.map((value,index)=>{
           return(
+            <div className="todo-list" key={value.id} >
             <div> 
               <div className="todo-list-item" key={value.id}>
 
-              <div className='list'>
+              <div className='list' key={value.id} >
             <h3>{value.title}</h3>
             <p>{value.discription}</p>
       
@@ -137,10 +137,44 @@ useEffect(()=>{
 
 
 </div>
+</div>
 )
 })
 }
+
+{
+      active===true && 
+        
+        completeTodoHandler.map((value,index)=>{
+          return(
+            <div className="todo-list" key={value.id} >
+            <div> 
+              <div className="todo-list-item" key={value.id}>
+
+              <div className='list' key={value.id}>
+            <h3>{value.title}</h3>
+            <p>{value.discription}</p>
+      
+              </div>
+              <div className='icon'>
+      
+              <RiDeleteBinLine className='del-icon' onClick={()=>[
+                handledeletetodo(value.id)
+              ]} />
+              </div>
+      
+      
+              </div>
+
+
 </div>
+</div>
+)
+})
+}
+
+
+
 
 
       {/* {
