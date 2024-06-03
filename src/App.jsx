@@ -145,9 +145,9 @@ useEffect(()=>{
 {
       active===true && 
         
-        completeTodoHandler.map((value,index)=>{
-          return(
-            <div className="todo-list" key={value.id} >
+      completeTodoHandler.map((value,index)=>{
+      return(
+        <div className="todo-list" key={value.id} >
             <div> 
               <div className="todo-list-item" key={value.id}>
 
