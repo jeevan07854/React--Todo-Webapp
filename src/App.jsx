@@ -34,13 +34,22 @@ function App () {
         localStorage.setItem('todolist',JSON.stringify(reducedTodo))
         setTodos(reducedTodo);
   };
+
+
+  // const handleDeleteTodo = (id) => {
+  //   let reducedTodo = [...allTodos];
+  //   reducedTodo.splice (index);
+
+  //   localStorage.setItem ('todolist', JSON.stringify (reducedTodo));
+  //   setTodos (reducedTodo);
+  // };
 //   const handleDeleteTodo =(id)=>{
-//     const reducedtodo =todos.filter((item)=>item.id !== id);
+//     const reducedtodo =allTodos.filter((item)=>item.id !== id);
 //  //  console.log(id,reducedtodo)
 //    //  reducedtodo.splice(index);
 //    //   console.log(reducedtodo);
 //     localStorage.setItem('todolist',JSON.stringify(reducedtodo))
-//     settodos(reducedtodo);
+//     setTodos(reducedtodo);}
 
   const handleComplete = index => {
     let now = new Date ();
