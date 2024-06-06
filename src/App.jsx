@@ -92,6 +92,7 @@ function App () {
     );
     if (savedTodo) {
       setTodos (savedTodo);
+      //functional modification
     }
 
     if (savedCompletedTodo) {
